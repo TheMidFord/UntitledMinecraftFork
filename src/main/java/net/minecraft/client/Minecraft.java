@@ -7,6 +7,7 @@ package net.minecraft.client;
 import net.minecraft.SharedConstants;
 import net.minecraft.client.Options.Option;
 import net.minecraft.client.gamemode.SurvivalMode;
+import net.minecraft.client.gui.*;
 import net.minecraft.client.multiplayer.MultiplayerLocalPlayer;
 import net.minecraft.client.multiplayer.ClientConnection;
 
@@ -18,9 +19,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.PortalForcer;
 import net.minecraft.world.level.dimension.Dimension;
 import net.minecraft.world.level.chunk.ChunkSource;
-import net.minecraft.client.gui.ChatScreen;
 import net.minecraft.client.gui.inventory.InventoryScreen;
-import net.minecraft.client.gui.InBedChatScreen;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -30,19 +29,14 @@ import net.minecraft.world.level.tile.Tile;
 import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.client.gamemode.CreativeMode;
-import net.minecraft.client.gui.PauseScreen;
-import net.minecraft.client.gui.OutOfMemoryScreen;
 import net.minecraft.client.renderer.Chunk;
 import net.minecraft.client.renderer.TileRenderer;
 import net.minecraft.world.level.storage.LevelStorageException;
-import net.minecraft.client.gui.LevelConflictScreen;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
 import org.lwjgl.util.glu.GLU;
-import net.minecraft.client.gui.DeathScreen;
-import net.minecraft.client.gui.ErrorScreen;
 import net.minecraft.client.renderer.Tesselator;
-import net.minecraft.client.gui.ScreenSizeCalculator;
+
 import java.awt.Graphics;
 import net.minecraft.client.title.TitleScreen;
 import net.minecraft.client.multiplayer.ConnectScreen;
@@ -81,11 +75,8 @@ import net.minecraft.client.skins.TexturePackRepository;
 import net.minecraft.client.sound.SoundEngine;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.achievement.AchievementPopup;
 import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.client.gui.Screen;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.Textures;
 import java.awt.Canvas;
 import java.io.FileOutputStream;
@@ -1292,6 +1283,10 @@ public abstract class Minecraft implements Runnable
 
                         if (this.isClientSide() && Keyboard.getEventKey() == this.options.keyChat.key) {
                             this.setScreen(new ChatScreen());
+                        }
+                        if (Keyboard.getEventKey() == this.options.keyViewRecipes.key){
+                            System.out.println("The screen should appear now!");
+                            this.setScreen(new RecipeViewerScreen());
                         }
                     }
 

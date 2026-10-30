@@ -449,7 +449,7 @@ public class ClientConnection extends PacketListener
         }
         else {
             try {
-                URL url = new URL("http://www.minecraft.net/game/joinserver.jsp?user=" + this.minecraft.user.name + "&sessionId=" + this.minecraft.user.sessionId + "&serverId=" + packet.userName);
+                URL url = new URL("http://session.minecraft.net/game/joinserver.jsp?user=" + this.minecraft.user.name + "&sessionId=" + this.minecraft.user.sessionId + "&serverId=" + packet.userName);
                 final BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
                 final String msg = br.readLine();
                 br.close();

@@ -4,11 +4,13 @@
 
 package net.minecraft.client.player;
 
+import net.minecraft.SkinFix;
 import net.minecraft.world.item.ItemInstance;
 import util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
+
 
 public class RemotePlayer extends Player
 {
@@ -23,7 +25,7 @@ public class RemotePlayer extends Player
         this.heightOffset = 0.0f;
         this.footSize = 0.0f;
         if (name != null && name.length() > 0) {
-            this.customTextureUrl = "http://s3.amazonaws.com/MinecraftSkins/" + name + ".png";
+            this.customTextureUrl = SkinFix.getSkinURL(name);
         }
 
         this.noPhysics = true;

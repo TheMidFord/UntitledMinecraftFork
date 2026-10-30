@@ -6,6 +6,7 @@ package net.minecraft.world.entity.player;
 
 import net.minecraft.Direction;
 import net.minecraft.SharedConstants;
+import net.minecraft.SkinFix;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.item.Boat;
@@ -173,7 +174,7 @@ public abstract class Player extends Mob
     
     @Override
     public void prepareCustomTextures() {
-        this.cloakTexture = "http://s3.amazonaws.com/MinecraftCloaks/" + this.name + ".png";
+        this.cloakTexture = SkinFix.getCapeURL(this.name);
         this.customTextureUrl2 = this.cloakTexture;
     }
     

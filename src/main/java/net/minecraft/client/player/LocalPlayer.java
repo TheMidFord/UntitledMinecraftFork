@@ -4,6 +4,7 @@
 
 package net.minecraft.client.player;
 
+import net.minecraft.SkinFix;
 import util.Mth;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.Stat;
@@ -40,7 +41,7 @@ public class LocalPlayer extends Player
         this.minecraft = minecraft;
         this.dimension = dimension;
         if (user != null && user.name != null && user.name.length() > 0) {
-            this.customTextureUrl = "http://s3.amazonaws.com/MinecraftSkins/" + user.name + ".png";
+            this.customTextureUrl = SkinFix.getSkinURL(user.name);
         }
         this.name = user.name;
     }
